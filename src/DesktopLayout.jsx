@@ -1,7 +1,7 @@
 import React from "react";
 import bgDesign from "../images/bg-intro-mobile.png"
 
-export function DesktopLayout({ firstName, setFirstName, firstNameError, handleSubmit }) {
+export function DesktopLayout({ firstName, setFirstName, firstNameError, handleSubmit, lastName, setLastName, lastNameError, email, setEmail, emailError, password, setPassword, passwordError }) {
     
     return (
         <div className="min-h-screen bg-coral bg-top bg-contain px-8" style={{ backgroundImage: `url("${bgDesign}")`, backgroundSize: "contain", backgroundRepeat: "repeat", }}>
@@ -16,15 +16,28 @@ export function DesktopLayout({ firstName, setFirstName, firstNameError, handleS
                 <div className="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
                     <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                    <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className={`${firstNameError ? 'border-red-500' : ''} w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
+                    <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className={`w-full border rounded-md p-3 text-sm font-semibold placeholder-gray-500 ${firstNameError ? 'border border-red-500 focus:border-red-500 focus:ring-red-500' : 'border border-gray-300 focus:border-green-500 focus:ring-green-500'} focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
                     {firstNameError && (<p className="text-red-500">First Name cannot be empty</p>)}
                     </div>
-                    <input type="text" placeholder="Last Name" className="w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-500"></input>
-                    <input type="email" placeholder="Email Address" className="w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-500"></input>
-                    <input type="password" placeholder="Password" className="w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-500"></input>
+                    <div>
+                    <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} className={`w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 ${lastNameError ? 'border border-red-500 focus:border-red-500 focus:ring-red-500' : 'border border-gray-300 focus:border-green-500 focus:ring-green-500'} focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
+                    {lastNameError && (<p className="text-red-500">Last Name cannot be empty</p>)}
+                    </div>
+                    <div>
+                    <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} className={`w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 ${emailError ? 'border border-red-500 focus:border-red-500 focus:ring-red-500' : 'border border-gray-300 focus:border-green-500 focus:ring-green-500'} focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
+                    {emailError && (<p className="text-red-500">{emailError}</p>)}
+                    </div>
+                    <div>
+                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className={`w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 ${passwordError ? 'border border-red-500 focus:border-red-500 focus:ring-red-500' : 'border border-gray-300 focus:border-green-500 focus:ring-green-500'} focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
+                    {passwordError.length > 0 && (
+                    <div>
+                    {passwordError.map((err, i) => (
+                    <p className="text-red-500" key={i}>{err}</p>))}
+                    </div>)}
+                    </div>
                     <button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white text-sm font-md py-3 rounded-md shadow-md tracking-wide uppercase">CLAIM YOUR FREE TRIAL</button>
                     <p className="text-center text-xs text-gray-400 mt-4">By clicking the button, you are agreeing to our <span className="text-red-400 font-semibold">Terms and Services</span></p>
-                </form>
+                    </form>
                 </div>
                 </div>
             </div>
