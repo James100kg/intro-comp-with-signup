@@ -106,7 +106,24 @@ export function ParentWrapper() {
       setPasswordError={setPasswordError} />}
     </div>
     <div className="block md:hidden">
-      {<MobileLayout />}
+      {<MobileLayout
+      firstName={firstName}
+      setFirstName={setFirstName}
+      firstNameError={firstNameError}
+      setFirstNameError={setFirstNameError}
+      handleSubmit={handleSubmit}
+      lastName={lastName}
+      setLastName={setLastName}
+      lastNameError={lastNameError}
+      setLastNameError={setLastNameError}
+      email={email}
+      setEmail={setEmail}
+      emailError={emailError}
+      setEmailError={setEmailError}
+      password={password}
+      setPassword={setPassword}
+      passwordError={passwordError}
+      setPasswordError={setPasswordError} />}
     </div>
         </>
     )

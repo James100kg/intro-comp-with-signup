@@ -28,7 +28,7 @@ export function DesktopLayout({ firstName, setFirstName, firstNameError, handleS
                     {emailError && (<p className="text-red-500">{emailError}</p>)}
                     </div>
                     <div>
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className={`w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 ${passwordError ? 'border border-red-500 focus:border-red-500 focus:ring-red-500' : 'border border-gray-300 focus:border-green-500 focus:ring-green-500'} focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
+                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className={`w-full border border-gray-300 rounded-md p-3 text-sm font-semibold placeholder-gray-500 ${passwordError.length > 0 ? 'border border-red-500 focus:border-red-500 focus:ring-red-500' : 'border border-gray-300 focus:border-green-500 focus:ring-green-500'} focus:outline-none focus:ring-1 focus:ring-green-500`}></input>
                     {passwordError.length > 0 && (
                     <div>
                     {passwordError.map((err, i) => (
